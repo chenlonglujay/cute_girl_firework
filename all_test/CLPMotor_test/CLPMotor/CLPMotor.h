@@ -9,10 +9,6 @@
 //divide 1600,the smallest pulse is 8(5steps),so at least run once needs 5 steps
 //go_step*pulseChange/10 
 //5 * 16 /10=8step
-
-//if there haven't thread,Please follow the steps listed below:
-//1.Sketch->Include Library -> Manage Libraries
-//2.type thread to search and install it
 //--------------------------------------
 
 #ifndef __CLPMOTOR_LED_H
@@ -29,11 +25,6 @@ CLPMTR *CLPM_tester = new CLPMTR;
 unsigned int Timer4CountSet[10];
 unsigned int Timer5CountSet[7];
 #define timer5set 5
-
-struct action_mode{
-    uint8_t mode;
-    enum{by_jog = 0, by_step};
-};
 
 struct  motor_control{
   bool arrive;
@@ -53,9 +44,6 @@ struct  motor_control{
 struct system_state {
     bool limit_sensor_state;     //true: sensing something
     bool prevent_startup_into_ISR;
-    //bool zero_ok;
-    //uint8_t  action;
-    //enum{dcm_release = 0, dcm_push , clpm_run};
 } SYS_state;
 
 
