@@ -9,6 +9,7 @@ void setup() {
   CGFW.interrupt_initial(limit_sensor_ISR);
   CGFW.set_prevent_startup_into_ISR(true);
   delay(2000);     //delay wait for CLP motor and driver
+  arm_away_from_limit_sensor();
    Serial.println(F("start"));
 }
 
@@ -105,6 +106,11 @@ void all_action() {
   }
 }
 
-
+void arm_away_from_limit_sensor() {
+  CGFW.CLPMTR_setting(CCW, 0);
+  delay(1000);
+  CGFW.timer4_stop();
+  CGFW.timer5_stop();
+}
 
 
